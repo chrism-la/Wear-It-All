@@ -1,9 +1,30 @@
 
+.logo {
+  display: inline-flex;
+  background-color: #c6d2cf;
+}
+
+
+.navbar-brand {
+  width: 100vw ;
+}
+
+a.navbar-brand {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: flex-start;
+}
 
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;

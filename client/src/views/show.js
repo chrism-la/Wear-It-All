@@ -1,15 +1,15 @@
 // folder views - file show
-
-
 import React from 'react'
 import Header from '../components/header'
+import ShowCard from '../components/showCard';
 
 
 
 function Show() {
     return (
-        <div className="App">
-            <h1>Show</h1>
+        <div>
+            <Header/>
+            <ShowCard/>
         </div>
     );
 }

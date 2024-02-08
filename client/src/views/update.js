@@ -3,12 +3,13 @@
 
 import React from 'react'
 import Header from '../components/header'
-
+import UpdateForm from '../components/updateForm';
 
 function Update() {
     return (
-        <div className="App">
-            <h1>Update</h1>
+        <div>
+            <Header/>
+            <UpdateForm/>
         </div>
     );
 }

@@ -1,15 +1,15 @@
 // folder views - file sell
-
-
 import React from 'react'
 import Header from '../components/header'
+import SellForm from '../components/sellForm';
 
 
 
 function Sell() {
     return (
-        <div className="App">
-            <h1>Sell</h1>
+        <div>
+            <Header/>
+            <SellForm/>
         </div>
     );
 }
