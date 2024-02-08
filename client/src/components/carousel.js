@@ -12,9 +12,12 @@ function DarkVariantExample() {
                     alt="clothes on hangers"
                 />
                 <Carousel.Caption>
-                    <h5>Embark on a Sartorial Adventure</h5>
+                    <h5>Embark on an Adventure</h5>
                     <p>
-                    as you navigate the digital aisles of our web app, seeking the perfect garment that seamlessly blends style and comfort for your upcoming special event or casual hangout with friends. 
+                        as you navigate the digital aisles of our web app,
+                        seeking the perfect garment that seamlessly blends style
+                        and comfort for your upcoming special event or casual
+                        hangout with friends.
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -27,7 +30,9 @@ function DarkVariantExample() {
                 <Carousel.Caption>
                     <h5>Browse through our Virtual Aisles</h5>
                     <p>
-                    each garment is not just a piece of fabric; it's a cherished secret, waiting to be whispered to someone special in your life. 
+                        each garment is not just a piece of fabric; it's a
+                        cherished secret, waiting to be whispered to someone
+                        special in your life.
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -40,7 +45,10 @@ function DarkVariantExample() {
                 <Carousel.Caption>
                     <h5>In the Spirit of Generosity</h5>
                     <p>
-                    our web app becomes a virtual haven where kindness weaves through every click. Imagine the joy of gifting, not just clothing, but a moment of warmth and comfort to someone in need. 
+                        our web app becomes a virtual haven where kindness
+                        weaves through every click. Imagine the joy of gifting,
+                        not just clothing, but a moment of warmth and comfort to
+                        someone in need.
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
