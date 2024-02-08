@@ -1,1 +1,3 @@
-GET http://localhost:3127/
+GET http://localhost:3127/items
+###
+GET http://localhost:3127/items/shirt

@@ -11,16 +11,16 @@ items.get('/', async (req, res) => {
     }
 });
 
-// items.get('/:name', async (req, res) => {
-//     try {
-//         const foundItems = await Items.findOne({
-//             where: { name: req.params.name },
-//         });
-//         res.status(200).json(foundItems);
-//         console.log('found item');
-//     } catch (error) {
-//         res.status(500).json(error);
-//     }
-// });
+items.get('/:name', async (req, res) => {
+    try {
+        const foundItems = await Items.findAll({
+            where: { name: req.params.name },
+        });
+        res.status(200).json(foundItems);
+        console.log('found item');
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
 
 module.exports = items;
