@@ -13,7 +13,7 @@ export default function Header(){
                     <Navbar.Brand  className= "" as={Link} to="/">
                         <Button className="mb-2">Home</Button>
 
-                        <h1 className="mb-2" style={{ fontSize: "25px" }}>
+                        <h1 className="mb-2" style={{ fontSize: "20px" }}>
                             Wear it Again Wardrobe
                         </h1>
 

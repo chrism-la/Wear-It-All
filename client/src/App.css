@@ -1,7 +1,22 @@
+h5 {
+  text-shadow: 2px 2px 10px black;
+  color: whitesmoke !important;
+
+}
 
 .logo {
   display: inline-flex;
   background-color: #c6d2cf;
+}
+
+p {
+  background: rgba(0, 0, 0, 0.5);
+  margin: .1px;
+  padding: 1px;
+  text-align: justify;
+  text-shadow: 2px 2px 10px #c6d2cf;
+  color: white
+  
 }
 
 
