@@ -7,45 +7,46 @@ import "../App.css";
 
 export default function Header(){
     return (
-        <div>
+        <div className="d-flex flex-column align-items-center">
             <Navbar bg="light" expand="lg">
-                <Container className="d-flex flex-column align-items-center">
+                <Container className="flex-column align-items-center">
                     <Navbar.Brand  className= "" as={Link} to="/">
-                        <Button className="mb-2">Home</Button>
+                        <Button className= "mb-4" style={{backgroundColor: "#d6d6d6", margin: "4px", padding: "5px", border: "5px"}} >Home</Button>
 
-                        <h1 className="mb-2" style={{ fontSize: "20px" }}>
+                        <h1 className="mb-2" style={{ fontSize: "30px",  marginTop: "10px", marginRight: "2px", color: "#472836", textAlign:"center", textShadow: "2px 2px 4px"}}>
                             Wear it Again Wardrobe
                         </h1>
 
-                        <img
+                        <img className="logo"
                             src="https://www.pinclipart.com/picdir/big/567-5671881_clothes-hanger-clipart-png-download.png"
                             alt="Logo"
                             width="75"
                             height="50"
-                            className="mb-2"
                         />
+                        
                     </Navbar.Brand>
-                    <h5>from our closet to yours</h5>
+                    <h4 className="mb-2" style={{fontSize: "20px", color: "#c6d2cf", textAlign:"justify", textShadow: "2px 2px 4px black"}}>
+                        from our closet to yours
+                        </h4>
                 </Container>
             </Navbar>
-
-            <Container>
-            <Navbar bg="body-tertiary" expand="sm">
+            <Container className="">
             
-                <Nav className="mr-auto">
-                    <LinkContainer to="/buy">
-                        <Nav.Link className="btn btn-outline-success me-3">BUY</Nav.Link>
+            <Navbar  bg="" expand="sm">
+                <Nav className="" >
+                    <LinkContainer style={{backgroundColor: "#d6d6d6", marginTop: "-80px", marginBottom: "20px", textShadow: "1px 1px 1px #472836" }} to="/buy">
+                        <Nav.Link className="btn btn-outline-success me-2">BUY</Nav.Link>
                     </LinkContainer>
 
-                    <LinkContainer to="/sell">
-                        <Nav.Link className="btn btn-outline-success me-3">SELL</Nav.Link>
+                    <LinkContainer style={{backgroundColor: "#d6d6d6", marginTop: "4px", marginBottom: "20px", textShadow: "1px 1px 1px #472836"}} to="/sell">
+                        <Nav.Link className="btn btn-outline-success me-2">SELL</Nav.Link>
                     </LinkContainer>
 
-                    <LinkContainer to="/gift">
-                        <Nav.Link className="btn btn-outline-success me-3">GIFT</Nav.Link>
+                    <LinkContainer style={{backgroundColor: "#d6d6d6", marginTop: "4px", marginBottom: "-30px", textShadow: "1px 1px 1px #472836"}} to="/gift">
+                        <Nav.Link className="btn btn-outline-success me-2">GIFT</Nav.Link>
                     </LinkContainer>
                 </Nav>
-    
+                
         </Navbar>
             </Container>
         </div>
