@@ -43,7 +43,7 @@ export default function SearchInput() {
         <>
             <Navbar className="bg justify-content-between">
                 <Form onSubmit={handleSearch}>
-                    <Row>
+                    <Row className='row'>
                         <Col xs="">
                             <Form.Control type="text" placeholder="Search" className="mr-sm-2" value={search} onChange={(e) => setSearch(e.target.value)} />
                         </Col>
