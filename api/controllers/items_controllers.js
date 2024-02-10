@@ -25,13 +25,16 @@ items.get('/:name', async (req, res) => {
 });
 
 // Create route
-items.post('/delete',  (req, res) => {
+items.post('/new', async (req, res) => {
     try {
-        const newItem = await Items.create(req.body)
+        const {name,image} = req.body;
+        const newItem = await items.create({name,image})
         res.status(200).json(newItem);
 res.status(500).json(error)
 } catch (error) {
-
+res.status(500).json(error);
 })
+// delete route
+i
 
 module.exports = items;
