@@ -30,10 +30,9 @@ items.post('/new', async (req, res) => {
         const {name,image} = req.body;
         const newItem = await items.create({name,image})
         res.status(200).json(newItem);
-res.status(500).json(error)
 } catch (error) {
 res.status(500).json(error);
-})
+}})
 // delete route
 i
 
