@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Container, Form, Button } from 'react-bootstrap';
 
 const SellForm = () => {
     const [image, setImage] = useState(null);
-    const [price, setPrice] = useState("");
-    const [title, setTitle] = useState("");
-    const [zipcode, setZipcode] = useState("");
-    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState('');
+    const [title, setTitle] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [description, setDescription] = useState('');
 
     const handleDrop = (event) => {
         event.preventDefault();
 
         const file = event.dataTransfer.files[0];
 
-        if (file && file.type.startsWith("image/")) {
+        if (file && file.type.startsWith('image/')) {
             const reader = new FileReader();
 
             reader.onload = (e) => {
@@ -31,7 +31,7 @@ const SellForm = () => {
     const handleImageChange = (event) => {
         const file = event.target.files[0];
 
-        if (file && file.type.startsWith("image/")) {
+        if (file && file.type.startsWith('image/')) {
             const reader = new FileReader();
 
             reader.onload = (e) => {
@@ -42,17 +42,26 @@ const SellForm = () => {
         }
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        // Handle form submission logic here (e.g., send data to the server)
-
-        // Reset form fields after submission
+        try {
+            const body = {title,price}
+            const response = await fetch('http://localhost3127/items/new', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+            });
+            console.log('Item added Successfully', response);
+        } catch (error) {
+            console.error(error);
+        }
         setImage(null);
-        setPrice("");
-        setTitle("");
-        setZipcode("");
-        setDescription("");
+        setPrice('');
+        setTitle('');
+        setZipcode('');
+        setDescription('');
     };
 
     return (
@@ -61,69 +70,33 @@ const SellForm = () => {
                 <h3>Sell Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
-                        <Form.Label><p>Click to upload image</p></Form.Label>
-                        <div
-                            className="image-upload-field"
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
-                        >
-                            {image ? (
-                                <img
-                                    src={image}
-                                    alt="Uploaded"
-                                    style={{ maxWidth: "100%" }}
-                                />
-                            ) : (
-                                <p className="hidden">Drop image here to upload</p>
-                            )}
+                        <Form.Label>
+                            <p>Click to upload image</p>
+                        </Form.Label>
+                        <div className="image-upload-field" onDrop={handleDrop} onDragOver={handleDragOver}>
+                            {image ? <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} /> : <p className="hidden">Drop image here to upload</p>}
                         </div>
-                        <Form.Control
-                            type="file"
-                            accept="image/*"
-                            style={{ display: "none" }}
-                            onChange={handleImageChange}
-                        />
+                        <Form.Control type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
                     </Form.Group>
 
                     <Form.Group controlId="formPrice">
                         <Form.Label>Price</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter price"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                        />
+                        <Form.Control type="text" placeholder="Enter price" value={price} onChange={(e) => setPrice(e.target.value)} />
                     </Form.Group>
 
                     <Form.Group controlId="formTitle">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
+                        <Form.Control type="text" placeholder="Enter title" value={title} onChange={(e) => setTitle(e.target.value)} />
                     </Form.Group>
 
                     <Form.Group controlId="formZipcode">
                         <Form.Label>Zipcode</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter zipcode"
-                            value={zipcode}
-                            onChange={(e) => setZipcode(e.target.value)}
-                        />
+                        <Form.Control type="text" placeholder="Enter zipcode" value={zipcode} onChange={(e) => setZipcode(e.target.value)} />
                     </Form.Group>
 
                     <Form.Group controlId="formDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control
-                            as="textarea"
-                            rows={3}
-                            placeholder="Enter description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
+                        <Form.Control as="textarea" rows={3} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)} />
                     </Form.Group>
 
                     <Button className="sellButton" variant="primary" type="submit">
