@@ -21,7 +21,7 @@ export default function SearchInput() {
             const filtered = jsonData.filter((item) => item.name.toLowerCase() === search.toLowerCase());
             setFilteredData(filtered);
         } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error(error);
         }
         setSearch('');
     };
