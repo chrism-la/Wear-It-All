@@ -45,13 +45,16 @@ const SellForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const body = {title,price}
-            const response = await fetch('http://localhost3127/items/new', {
-                method: "POST",
+            const response = await fetch('http://localhost:3127/items/new', {
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(body),
+                body: JSON.stringify({
+                    item_id: '',
+                    name: title,
+                    image: price,
+                }),
             });
             console.log('Item added Successfully', response);
         } catch (error) {
