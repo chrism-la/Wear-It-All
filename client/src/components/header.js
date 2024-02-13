@@ -12,16 +12,13 @@ export default function Header() {
                 <Navbar bg="" expand="lg">
                     <Container className="flex-row align-items-center">
                         <Navbar.Brand className="" as={Link} to="/">
-                            <Button style={{backgroundColor: "#7aada0", color: "black", borderColor: "lightblue"}}>Home</Button>
+                            <Button className="" style={{backgroundColor: "#7aada0", color: "black", borderColor: "lightblue"}}>Home</Button>
 
-                            <h1
+                            <h1 className="pt-2 text-center"
                                 style={{
-                                    fontSize: "30px",
                                     color: "#472836",
                                     textShadow: "2px 2px 3px #136b55",
-                                    
                                     width: "100vw",
-                                    padding: "15px 5px 5px 15px",
                                 }}
                             >
                                 Wear it Again Wardrobe
@@ -52,7 +49,6 @@ export default function Header() {
             </div>
 
             <h4 className= "pt-4" style={{
-                                    fontSize: "18px",
                                     color: "#472836",
                                     textShadow: "2px 2px 8px #136b55",
                                     boxSizing: "border-box",
