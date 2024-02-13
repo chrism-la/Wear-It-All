@@ -87,6 +87,11 @@ const SellForm = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formPrice">
+                        <Form.Label>Image URL</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Image URL Here" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="formPrice">
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="text" placeholder="Enter price" value={price} onChange={(e) => setPrice(e.target.value)} />
                     </Form.Group>
