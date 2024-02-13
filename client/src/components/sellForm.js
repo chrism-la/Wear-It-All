@@ -70,7 +70,11 @@ const SellForm = () => {
     return (
         <Container>
             <main>
-                <h3>Sell Form</h3>
+                <h3 style={{
+                                fontSize: "25px",
+                                color: "#7aada0",
+
+                                }}>Sell Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label>
@@ -97,12 +101,12 @@ const SellForm = () => {
                         <Form.Control type="text" placeholder="Enter zipcode" value={zipcode} onChange={(e) => setZipcode(e.target.value)} />
                     </Form.Group>
 
-                    <Form.Group controlId="formDescription">
+                    <Form.Group controlId="formDescription" >
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" rows={3} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)} />
                     </Form.Group>
 
-                    <Button className="sellButton" variant="primary" type="submit">
+                    <Button className="sellButton" type="submit"  style={{backgroundColor: "lightblue", borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
                         Submit
                     </Button>
                 </Form>

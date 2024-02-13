@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import '../App.css';
 
 function ShowCard({ imageData }) {
     const handleBuyClick = async () => {
@@ -20,17 +21,19 @@ function ShowCard({ imageData }) {
             console.error('Error deleting item:', error);
         }
     };
-
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card className="row justify-content-center mx-auto w-50 min-vw-50 p-2 ">
             <Card.Img variant="top" src={imageData.image} alt={imageData.image} />
             <Card.Body>
-                <Card.Title>{imageData.name}</Card.Title>
-                <Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-                <Button variant="primary" onClick={handleBuyClick}>
-                    Buy
+                <Card.Title className="text-center">{imageData.name}</Card.Title>
+                <Card.Text className="text-center">price, description.</Card.Text>
+
+                <Button type="" className="" onClick={handleBuyClick}>
+                    Buying
                 </Button>
-                <Button variant="primary">Update</Button>
+                <Button type="" className="">
+                    Update
+                </Button>
             </Card.Body>
         </Card>
     );
