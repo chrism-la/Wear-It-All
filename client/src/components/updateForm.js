@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Modal } from "react-bootstrap";
 
 const UpdateForm = ({ imageData }) => {
     const [image, setImage] = useState(null);
@@ -7,6 +7,9 @@ const UpdateForm = ({ imageData }) => {
     const [title, setTitle] = useState("");
     const [zipcode, setZipcode] = useState("");
     const [description, setDescription] = useState("");
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
+    const [showNetworkErrorModal, setShowNetworkErrorModal] = useState(false);
 
     const handleDrop = (event) => {
         event.preventDefault();
@@ -44,26 +47,35 @@ const UpdateForm = ({ imageData }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-            try {
-                const response = await fetch(`http://localhost:3127/items/${imageData.item_id}`, {
-                    method: 'PUT',
+        try {
+            const response = await fetch(
+                `http://localhost:3127/items/${imageData.item_id}`,
+                {
+                    method: "PUT",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        item_id: '',
+                        item_id: "",
                         name: title,
                         image: price,
                     }),
-                });
-                if (response.ok) {
-                    console.log('Item updated successfully');
-                } else {
-                    console.error('Failed to update item');
                 }
-            } catch(error) {
-                console.error('Error updating item:', error);
+            );
+
+            if (response.ok) {
+                setShowSuccessModal(true);
+                setTimeout(() => setShowSuccessModal(false), 5000); // Close modal after 5 seconds
+            } else {
+                setShowErrorModal(true);
+                setTimeout(() => setShowErrorModal(false), 5000); // Close modal after 5 seconds
             }
+        } catch (error) {
+            console.error("Error updating item:", error);
+            setShowNetworkErrorModal(true);
+            setTimeout(() => setShowNetworkErrorModal(false), 5000); // Close modal after 5 seconds
+        }
+
         setImage(null);
         setPrice("");
         setTitle("");
@@ -74,14 +86,14 @@ const UpdateForm = ({ imageData }) => {
     return (
         <Container>
             <main>
-                <h3 style={{
-                                    fontSize: "25px",
-                                    color: "#7aada0",
-
-                                }} >Update Form</h3>
+                <h3 style={{ fontSize: "25px", color: "#7aada0" }}>
+                    Update Form
+                </h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
-                        <Form.Label><p>Click to upload image into inventory</p></Form.Label>
+                        <Form.Label>
+                            <p>Click to upload image into inventory</p>
+                        </Form.Label>
                         <div
                             className="image-upload-field"
                             onDrop={handleDrop}
@@ -94,7 +106,9 @@ const UpdateForm = ({ imageData }) => {
                                     style={{ maxWidth: "100%" }}
                                 />
                             ) : (
-                                <p className="hidden">Drag and Drop image here to upload into inventory</p>
+                                <p className="hidden">
+                                    Drag and Drop image here to upload into inventory
+                                </p>
                             )}
                         </div>
                         <Form.Control
@@ -107,7 +121,12 @@ const UpdateForm = ({ imageData }) => {
 
                     <Form.Group controlId="formPrice">
                         <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Image URL Here" value={price} onChange={(e) => setPrice(e.target.value)} />
+                        <Form.Control
+                            type="text"
+                            placeholder="Enter Image URL Here"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                        />
                     </Form.Group>
 
                     <Form.Group controlId="formPrice">
@@ -151,12 +170,49 @@ const UpdateForm = ({ imageData }) => {
                         />
                     </Form.Group>
 
-                    <Button className="updateButton" style={{backgroundColor: "lightblue", color:"black",borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}} type="submit">
+                    <Button
+                        className="updateButton"
+                        style={{
+                            backgroundColor: "lightblue",
+                            color: "black",
+                            borderColor: "#7adda0",
+                            marginTop: "20px",
+                            marginBottom: "20px",
+                        }}
+                        type="submit"
+                    >
                         Submit
                     </Button>
+
+                    <Modal
+                        show={showSuccessModal}
+                        onHide={() => setShowSuccessModal(false)}
+                    >
+                        <Modal.Body>Item updated successfully!</Modal.Body>
+                    </Modal>
+
+                    <Modal
+                        show={showErrorModal}
+                        onHide={() => setShowErrorModal(false)}
+                    >
+                        <Modal.Body>
+                            Failed to update item. Please try again.
+                        </Modal.Body>
+                    </Modal>
+
+                    <Modal
+                        show={showNetworkErrorModal}
+                        onHide={() => setShowNetworkErrorModal(false)}
+                    >
+                        <Modal.Body>
+                            Network error. Please check your connection and try
+                            again.
+                        </Modal.Body>
+                    </Modal>
                 </Form>
             </main>
         </Container>
     );
-}
+};
+
 export default UpdateForm;

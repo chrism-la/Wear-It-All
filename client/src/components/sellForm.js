@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Form, Button, Modal } from 'react-bootstrap';
 
 const SellForm = () => {
     const [image, setImage] = useState(null);
@@ -7,6 +7,8 @@ const SellForm = () => {
     const [title, setTitle] = useState('');
     const [zipcode, setZipcode] = useState('');
     const [description, setDescription] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
 
     const handleDrop = (event) => {
         event.preventDefault();
@@ -56,9 +58,15 @@ const SellForm = () => {
                     image: price,
                 }),
             });
-            console.log('Item added Successfully', response);
+            if (response.ok) {
+                setModalMessage('Item added Successfully');
+            } else {
+                setModalMessage('Failed to add item');
+            }
+            setShowModal(true);
         } catch (error) {
-            console.error(error);
+            setModalMessage('Error adding item');
+            setShowModal(true);
         }
         setImage(null);
         setPrice('');
@@ -67,21 +75,31 @@ const SellForm = () => {
         setDescription('');
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowModal(false);
+        }, 5000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [showModal]);
+
     return (
         <Container>
             <main>
-                <h3 style={{
-                                fontSize: "25px",
-                                color: "#7aada0",
-
-                                }}>Sell Form</h3>
+                <h3 style={{ fontSize: '25px', color: '#7aada0' }}>Sell Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label>
                             <p>Click to upload image</p>
                         </Form.Label>
                         <div className="image-upload-field" onDrop={handleDrop} onDragOver={handleDragOver}>
-                            {image ? <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} /> : <p className="hidden">Drop image here to upload</p>}
+                            {image ? (
+                                <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} />
+                            ) : (
+                                <p className="hidden">Drop image here to upload</p>
+                            )}
                         </div>
                         <Form.Control type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
                     </Form.Group>
@@ -91,6 +109,7 @@ const SellForm = () => {
                         <Form.Control type="text" placeholder="Enter Image URL Here" value={price} onChange={(e) => setPrice(e.target.value)} />
                     </Form.Group>
 
+                    {/* Add other form fields as needed */}
                     <Form.Group controlId="formPrice">
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="text" placeholder="Enter price" value={price} onChange={(e) => setPrice(e.target.value)} />
@@ -106,15 +125,23 @@ const SellForm = () => {
                         <Form.Control type="text" placeholder="Enter zipcode" value={zipcode} onChange={(e) => setZipcode(e.target.value)} />
                     </Form.Group>
 
-                    <Form.Group controlId="formDescription" >
+                    <Form.Group controlId="formDescription">
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" rows={3} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)} />
                     </Form.Group>
 
-                    <Button className="sellButton" type="submit"  style={{backgroundColor: "lightblue", color: "black" ,borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
+                    <Button
+                        className="sellButton"
+                        type="submit"
+                        style={{ backgroundColor: 'lightblue', color: 'black', borderColor: '#7adda0', marginTop: '20px', marginBottom: '20px' }}
+                    >
                         Submit
                     </Button>
                 </Form>
+
+                <Modal show={showModal} onHide={() => setShowModal(false)}>
+                    <Modal.Body>{modalMessage}</Modal.Body>
+                </Modal>
             </main>
         </Container>
     );
