@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 
-const UpdateForm = () => {
+const UpdateForm = ({ imageData }) => {
     const [image, setImage] = useState(null);
     const [price, setPrice] = useState("");
     const [title, setTitle] = useState("");
@@ -42,12 +42,28 @@ const UpdateForm = () => {
         }
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        // Handle form submission logic here (e.g., send data to the server)
-
-        // Reset form fields after submission
+            try {
+                const response = await fetch(`http://localhost:3127/items/${imageData.item_id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        item_id: '',
+                        name: title,
+                        image: price,
+                    }),
+                });
+                if (response.ok) {
+                    console.log('Item updated successfully');
+                } else {
+                    console.error('Failed to update item');
+                }
+            } catch(error) {
+                console.error('Error updating item:', error);
+            }
         setImage(null);
         setPrice("");
         setTitle("");
@@ -137,6 +153,5 @@ const UpdateForm = () => {
             </main>
         </Container>
     );
-};
-
+}
 export default UpdateForm;
