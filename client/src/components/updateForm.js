@@ -58,7 +58,11 @@ const UpdateForm = () => {
     return (
         <Container>
             <main>
-                <h3>Update Form</h3>
+                <h3 style={{
+                                    fontSize: "25px",
+                                    color: "#7aada0",
+
+                                }} >Update Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label><p>Click to upload image into inventory</p></Form.Label>
