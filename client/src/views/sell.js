@@ -2,7 +2,7 @@
 import React from 'react'
 import Header from '../components/header'
 import SellForm from '../components/sellForm';
-
+import Footer from "../components/footer"
 
 
 function Sell() {
@@ -10,6 +10,7 @@ function Sell() {
         <div>
             <Header/>
             <SellForm/>
+            <Footer/>
         </div>
     );
 }

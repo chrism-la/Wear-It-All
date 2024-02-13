@@ -58,10 +58,14 @@ const UpdateForm = () => {
     return (
         <Container>
             <main>
-                <h1>Update Form</h1>
+                <h3 style={{
+                                    fontSize: "25px",
+                                    color: "#7aada0",
+
+                                }} >Update Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
-                        <Form.Label>Click to upload image into inventory</Form.Label>
+                        <Form.Label><p>Click to upload image into inventory</p></Form.Label>
                         <div
                             className="image-upload-field"
                             onDrop={handleDrop}
@@ -74,7 +78,7 @@ const UpdateForm = () => {
                                     style={{ maxWidth: "100%" }}
                                 />
                             ) : (
-                                <p>Drag and Drop image here to upload into inventory</p>
+                                <p className="hidden">Drag and Drop image here to upload into inventory</p>
                             )}
                         </div>
                         <Form.Control
@@ -126,7 +130,7 @@ const UpdateForm = () => {
                         />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button className="updateButton" variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>

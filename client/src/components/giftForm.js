@@ -58,10 +58,14 @@ const GiftForm = () => {
     return (
         <Container>
             <main>
-                <h1>Sell Form</h1>
+                <h3  style={{
+                                    fontSize: "25px",
+                                    color: "#7aada0",
+
+                                }} >Gift Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
-                        <Form.Label>Click to upload image</Form.Label>
+                        <Form.Label><p>Click to upload image</p></Form.Label>
                         <div
                             className="image-upload-field"
                             onDrop={handleDrop}
@@ -74,7 +78,7 @@ const GiftForm = () => {
                                     style={{ maxWidth: "100%" }}
                                 />
                             ) : (
-                                <p>Drop image here to upload</p>
+                                <p className="hidden">Drop image here to upload</p>
                             )}
                         </div>
                         <Form.Control
@@ -126,9 +130,12 @@ const GiftForm = () => {
                         />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button className="giftButton" type="submit" style={{backgroundColor: "lightblue", borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
                         Submit
                     </Button>
+
+
+                    
                 </Form>
             </main>
         </Container>

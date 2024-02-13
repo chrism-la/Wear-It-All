@@ -1,3 +1,14 @@
 GET http://localhost:3127/items
 ###
 GET http://localhost:3127/items/shirt
+###
+POST http://localhost:3127/items/new
+Content-Type: application/json
+
+{
+  "item_id": "",
+  "name": "blazer",
+  "image": "image"
+}
+###
+DELETE http://localhost:3127/items/17

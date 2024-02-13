@@ -1,88 +1,228 @@
-@media (min-width: 360px) and (min-height: 720px) {
-  h1 {
-    margin: 10px;
-    padding: 10px;
-    border: 20px;
-    box-sizing: border-box;
+/* this is for cell phone */
+/* @media (min-width: 360px) and (min-height: 720px) {
+
+    #root {
+        display:inline;
     }
     .navbar-brand {
         width: 100vw;
-        box-sizing: border-box ;
-        display: inline;
-        flex-direction: row-reverse;
-        flex-wrap: wrap;
+        box-sizing: border-box;
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-evenly;
         align-items: stretch;
+        margin-right: 0;
     }
 
-    a.btn {
-      background-color: #f0f5fa;
-      color: #f0f5fa;
+    h1 {
+        font-size: 24px !important;
+        color: #472836 !important;
+        text-shadow: 2px 2px 2px #136b55;
+        box-sizing: border-box;
+        width: 100vw;
+        padding: 15px 15px 2px 9px;
+    } */
+/* this is to hide the drag and drop picture option */
+/* .hidden{
+    display: none;
+}
+
+    h3 {
+        color: #472836 !important;
+        text-shadow: 2px 2px 2px #136b55;
+        box-sizing: border-box;
+        padding-top: 15px;
     }
 
-    a.btn.active {
-      background-color: darkgrey;
+    h4 {
+        font-size: 15px !important;
+        color: #136b55 !important;
+        text-shadow: 2px 2px 5px #472836;
+        box-sizing: border-box;
+        width: 100vw;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 5px;
+    }
+
+    h6 {
+        background: rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 3px black;
+        border-radius: 5px;
     }
 
     .btn-primary {
-      background-color: #c6d2cf !important;
-      border-color: grey !important;
-      margin-left: 30px;
-      margin-right: 5px;
-    }
-
-  
-  p {
-      background: rgba(0, 0, 0, .4);
-      margin: 0.1px;
-      padding: 10px;
-      text-align: justify;
-      text-shadow: 2px 2px 4px black;
-      color: whitesmoke;
-  }
-
-}
-
-
-@media (max-width: 1366px) and (max-height: 768px) {
-    body {
         background-color: #c6d2cf !important;
+        border-color: grey !important;
+        color: black !important;
+        margin-left: 30px;
+        margin-right: 5px;
+        margin-top: 13px;
+        margin-bottom: 11px
+    
     }
+
+    .sellButton,
+    .giftButton,
+    .updateButton {
+        margin: 20px;
+    }
+
+    .navbar-nav {
+        background-color: #7aada0;
+        width: 100vw;
+        justify-content: space-evenly;
+        
+    }
+    p {
+        background: rgba(0, 0, 0, 0.5);
+        margin: 0.1px;
+        padding: 10px;
+        text-align: justify;
+        text-shadow: 1px 1px 3px black;
+        color: #7aada0;
+        border-radius: 10px;
+    }
+
+    .row {
+        padding-left: 12px;
+        padding-right: 10px;
+    }
+
+    .showButton {
+        display: flex;
+        justify-content: center;
+        padding-right: 20px;
+    }
+    .footer {
+        background-color: #7aada0;
+        padding-left: 80px;
+        text-decoration: none;
+        font-size: small;
+    }
+
+
+    
+
+    
+} */
+
+/* this is for laptop view */
+/* @media (min-width: 1366px) and (min-height: 768px) {
+    
+    #root {
+        display: inline;
+    }
+
     .navbar-brand {
         width: 100vw;
+        box-sizing: border-box;
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+        margin-right: 0;
+    } */
+/* Wear it again Wardrobe title */
+    /* h1 {
+        font-size: 75px !important;
+        color: #472836 !important;
+        text-shadow: 5px 5px 10px #136b55;
+        box-sizing: border-box;
+        width: 100vw;
+        padding: 1px 1px 1px 100px;
     }
-    a.navbar-brand {
-      display: inline-flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-  }
-  .navbar {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    align-content: flex-start;
-    margin: 50px;
-}
+
+a.nav-link {
+    font-size: 30px;
+
 }
 
+
+
+
+    h3 {
+        color: #472836 !important;
+        text-shadow: 2px 2px 2px #136b55;
+        box-sizing: border-box;
+        padding-top: 15px;
+    } */
+
+    /* from our closet to yours wording */
+    /* h4 {
+        font-size: 40px !important;
+        color: #136b55 !important;
+        text-shadow: 2px 2px 5px #472836;
+        box-sizing: border-box;
+        width: 100vw;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 5px;
+    } */
+
+    /* words on the carousel */
+    /* h6 {
+        background: rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 3px black;
+        border-radius: 5px;
+        font-size: 35px !important;
+    }
+
+    .btn-primary {
+        background-color: #c6d2cf !important;
+        border-color: grey !important;
+        color: black !important;
+        margin-left: 30px;
+        margin-right: 5px;
+        margin-top: 13px;
+        margin-bottom: 11px
+    
+    } */
+
+    /* .sellButton,
+    .giftButton,
+    .updateButton {
+        margin: 20px;
+    }
+
+    .navbar-nav {
+        background-color: #7aada0;
+        width: 100vw;
+        justify-content: space-evenly;
+        
+    }
+    p {
+        background: rgba(0, 0, 0, 0.5);
+        margin: 0.1px;
+        padding: 10px;
+        text-align: justify;
+        text-shadow: 1px 1px 3px black;
+        color: #7aada0;
+        border-radius: 10px;
+    } */
+
+    /* .row {
+        padding-left: 12px;
+        padding-right: 10px;
+    }
+
+    .showButton {
+
+        display: flex;
+        justify-content: center;
+        padding-right: 20px;
+    }
+    .footer {
+        background-color: #7aada0;
+        text-decoration: none;
+        font-size: small;
+    }
+
+}
 
 @media (max-width: 1920px) and (max-height: 1080px) {
-  body {
-      background-color: #c6d2cf !important;
-  }
-  .navbar-brand {
-      width: 100vw;
-  }
-  a.navbar-brand {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.navbar {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-content: flex-start;
-  margin: 50px;
-}
-}
+
+
+} */
