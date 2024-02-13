@@ -11,4 +11,4 @@ Content-Type: application/json
   "image": "image"
 }
 ###
-DELETE http://localhost:3127/items/13
+DELETE http://localhost:3127/items/17
