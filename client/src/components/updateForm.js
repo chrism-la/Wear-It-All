@@ -146,7 +146,7 @@ const UpdateForm = ({ imageData }) => {
                         />
                     </Form.Group>
 
-                    <Button className="updateButton" variant="primary" type="submit">
+                    <Button className="updateButton" style={{backgroundColor: "lightblue", color:"black",borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}} type="submit">
                         Submit
                     </Button>
                 </Form>

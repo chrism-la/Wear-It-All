@@ -126,7 +126,7 @@
         margin-right: 0;
     } */
 /* Wear it again Wardrobe title */
-    /* h1 {
+/* h1 {
         font-size: 75px !important;
         color: #472836 !important;
         text-shadow: 5px 5px 10px #136b55;
@@ -150,8 +150,8 @@ a.nav-link {
         padding-top: 15px;
     } */
 
-    /* from our closet to yours wording */
-    /* h4 {
+/* from our closet to yours wording */
+/* h4 {
         font-size: 40px !important;
         color: #136b55 !important;
         text-shadow: 2px 2px 5px #472836;
@@ -162,8 +162,8 @@ a.nav-link {
         padding-bottom: 5px;
     } */
 
-    /* words on the carousel */
-    /* h6 {
+/* words on the carousel */
+/* h6 {
         background: rgba(0, 0, 0, 0.4);
         text-shadow: 1px 1px 3px black;
         border-radius: 5px;
@@ -181,7 +181,7 @@ a.nav-link {
     
     } */
 
-    /* .sellButton,
+/* .sellButton,
     .giftButton,
     .updateButton {
         margin: 20px;
@@ -203,7 +203,7 @@ a.nav-link {
         border-radius: 10px;
     } */
 
-    /* .row {
+/* .row {
         padding-left: 12px;
         padding-right: 10px;
     }
@@ -226,3 +226,46 @@ a.nav-link {
 
 
 } */
+@media (min-width: 360px) and (min-height: 720px) {
+
+    h6 {
+        background: rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 3px black;
+        border-radius: 5px;
+    }
+}
+
+@media (min-width: 1366px) and (min-height: 768px) {
+
+h1 {
+    
+}
+
+    h6 {
+        background: rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 3px black;
+        border-radius: 5px;
+        font-size: 35px !important;
+    }
+
+    .buy,
+    .sell,
+    .gift {
+        font-size: 45px !important;
+    }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+    h6 {
+        background: rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 3px black;
+        border-radius: 5px;
+        font-size: 60px !important;
+    }
+
+    .buy,
+    .sell,
+    .gift {
+        font-size: 60px !important;
+    }
+}

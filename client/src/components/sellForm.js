@@ -106,7 +106,7 @@ const SellForm = () => {
                         <Form.Control as="textarea" rows={3} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)} />
                     </Form.Group>
 
-                    <Button className="sellButton" type="submit"  style={{backgroundColor: "lightblue", borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
+                    <Button className="sellButton" type="submit"  style={{backgroundColor: "lightblue", color: "black" ,borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
                         Submit
                     </Button>
                 </Form>

@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 function MyCarousel() {
     return (
-        <Carousel data-bs-theme="light">
+        <Carousel className="" data-bs-theme="light">
             <Carousel.Item>
                 <img
                     className="d-block w-100"
