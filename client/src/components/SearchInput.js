@@ -31,11 +31,11 @@ export default function SearchInput() {
             <Navbar className="bg justify-content-between">
                 <Form onSubmit={handleSearch}>
                     <Row className="row">
-                        <Col xs="">
+                        <Col xs="" style={{paddingLeft: "30px"}}>
                             <Form.Control type="text" placeholder="Search" className="mr-sm-2" value={search} onChange={(e) => setSearch(e.target.value)} />
                         </Col>
                         <Col xs="auto">
-                            <Button type="submit">Search</Button>
+                            <Button type="submit" style={{backgroundColor: "lightblue", borderColor:"#7adda0"}}>Search</Button>
                         </Col>
                     </Row>
                 </Form>

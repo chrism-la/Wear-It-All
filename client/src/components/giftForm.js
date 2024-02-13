@@ -58,7 +58,11 @@ const GiftForm = () => {
     return (
         <Container>
             <main>
-                <h3>Gift Form</h3>
+                <h3  style={{
+                                    fontSize: "25px",
+                                    color: "#7aada0",
+
+                                }} >Gift Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label><p>Click to upload image</p></Form.Label>
@@ -126,9 +130,12 @@ const GiftForm = () => {
                         />
                     </Form.Group>
 
-                    <Button className="giftButton" variant="primary" type="submit">
+                    <Button className="giftButton" type="submit" style={{backgroundColor: "lightblue", borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
                         Submit
                     </Button>
+
+
+                    
                 </Form>
             </main>
         </Container>

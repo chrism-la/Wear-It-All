@@ -2,7 +2,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-function DarkVariantExample() {
+function MyCarousel() {
     return (
         <Carousel data-bs-theme="light">
             <Carousel.Item>
@@ -12,8 +12,8 @@ function DarkVariantExample() {
                     alt="woman looking at close on the phone"
                 />
                 <Carousel.Caption>
-                    <h5>Embark on an Adventure</h5>
-                    <h6>as you navigate our digital aisles</h6>
+    
+                    <h6>Embark on an adventure and navigate our digital aisles</h6>
                 </Carousel.Caption>
             </Carousel.Item>
 
@@ -89,7 +89,7 @@ function DarkVariantExample() {
                 <img
                     className="d-block w-100"
                     src="https://images.unsplash.com/photo-1561524891-8e08ab8569f3?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="family"
+                    alt="family on a bridge"
                 />
                 <Carousel.Caption>
                     <h6>
@@ -102,7 +102,7 @@ function DarkVariantExample() {
                 <img
                     className="d-block w-100"
                     src="https://images.unsplash.com/photo-1482267553367-e79b27d2bba1"
-                    alt="man and women"
+                    alt="man and women embracing"
                 />
                 <Carousel.Caption>
                     <h6>
@@ -129,7 +129,7 @@ function DarkVariantExample() {
                 <img
                     className="d-block w-100"
                     src="https://images.unsplash.com/photo-1509059852496-f3822ae057bf"
-                    alt="helping someone"
+                    alt="a man giving to a person in need"
                 />
                 <Carousel.Caption>
                     <h6>
@@ -155,7 +155,7 @@ function DarkVariantExample() {
                 <img
                     className="d-block w-100"
                     src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6"
-                    alt="group hugging"
+                    alt="hands with paper saying make a change"
                 />
                 <Carousel.Caption>
                     <h6>
@@ -168,7 +168,7 @@ function DarkVariantExample() {
                 <img
                     className="d-block w-100"
                     src="https://images.unsplash.com/photo-1611934180042-da791b4091e7?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Thank You"
+                    alt="sunset with hand reaching out"
                 />
                 <Carousel.Caption>
                     <h6>
@@ -181,4 +181,4 @@ function DarkVariantExample() {
     );
 }
 
-export default DarkVariantExample;
+export default MyCarousel;
