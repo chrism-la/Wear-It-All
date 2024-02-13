@@ -22,18 +22,19 @@ function ShowCard({ imageData }) {
         }
     };
     return (
-        <Card className="row justify-content-center mx-auto w-50 min-vw-50 p-2 ">
+        <Card className="row justify-content-center mx-auto w-50 min-vw-50 p-2">
             <Card.Img variant="top" src={imageData.image} alt={imageData.image} />
             <Card.Body>
                 <Card.Title className="text-center">{imageData.name}</Card.Title>
                 <Card.Text className="text-center">price, description.</Card.Text>
-
-                <Button type="" className="" onClick={handleBuyClick}>
+<div style={{display: "inline-flex"}}>
+                <Button type="" className="" style={{backgroundColor: "#7aada0", border: "2px solid #d6d6d6", padding: "5px", marginLeft: "2px"}} onClick={handleBuyClick}>
                     Buying
                 </Button>
-                <Button type="" className="">
+                <Button type="" className="" style={{backgroundColor: "#7aada0",  border: "2px solid #d6d6d6", padding: "5px", marginLeft: "2px"}}>
                     Update
                 </Button>
+                </div>
             </Card.Body>
         </Card>
     );
