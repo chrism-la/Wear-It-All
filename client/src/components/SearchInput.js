@@ -13,32 +13,26 @@ export default function SearchInput() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const response = await fetch("http://localhost:3127/items");
-        const jsonData = await response.json();
-        setJsonData(jsonData);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
+    try {
+      setLoading(true);
+      setError(null);
 
-    const filtered = jsonData.filter((item) =>
-      item.name.toLowerCase().includes(search.toLowerCase())
-    );
-    setFilteredData(filtered);
+      const response = await fetch("http://localhost:3127/items");
+      const jsonData = await response.json();
+      setJsonData(jsonData);
+
+      const filtered = jsonData.filter(
+        (item) => item.name.toLowerCase() === search.toLowerCase()
+      );
+      setFilteredData(filtered);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+
     setSearch("");
   };
 
