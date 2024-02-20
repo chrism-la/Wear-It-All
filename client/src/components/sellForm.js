@@ -95,7 +95,7 @@ const SellForm = () => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label>
-                            <p>Click to upload image</p>
+                            <p className='hidden'>Click to upload image</p>
                         </Form.Label>
                         <div className="image-upload-field" onDrop={handleDrop} onDragOver={handleDragOver}>
                             {image ? (

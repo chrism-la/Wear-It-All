@@ -62,7 +62,7 @@ const GiftForm = () => {
                 }),
             });
             if (response.ok) {
-                setModalMessage('Item added Successfully');
+                setModalMessage('Thank you for your Gift');
             } else {
                 setModalMessage('Failed to add item');
             }
@@ -91,11 +91,11 @@ const GiftForm = () => {
     return (
         <Container>
             <main>
-                <h3 style={{ fontSize: '25px', color: '#7aada0' }}>Sell Form</h3>
+                <h3 style={{ fontSize: '25px', color: '#7aada0' }}>Gift Form</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label>
-                            <p>Click to upload image</p>
+                            <p className='hidden'>Click to upload image</p>
                         </Form.Label>
                         <div className="image-upload-field" onDrop={handleDrop} onDragOver={handleDragOver}>
                             {image ? (

@@ -99,7 +99,7 @@ const UpdateForm = ({ imageData }) => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formImage">
                         <Form.Label>
-                            <p>Click to upload image into inventory</p>
+                            <p className="hidden">Click to upload image into inventory</p>
                         </Form.Label>
                         <div
                             className="image-upload-field"
