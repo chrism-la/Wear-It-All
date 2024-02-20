@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
+import UpdateForm from "./updateForm";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +10,7 @@ function ShowCard({ imageData }) {
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+    const [showUpdateForm, setShowUpdateForm] = useState(false);
 
     const handleBuyClick = async () => {
         try {
@@ -37,6 +39,13 @@ function ShowCard({ imageData }) {
 
     const handleCardClick = (imageData) => {
         navigate("/update", { state: { imageData } });
+    };
+    const handleUpdateClick = () => {
+    setShowUpdateForm(true);
+    };
+
+    const handleUpdateFormClose = () => {
+    setShowUpdateForm(false);
     };
 
     useEffect(() => {

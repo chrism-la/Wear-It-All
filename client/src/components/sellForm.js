@@ -55,7 +55,9 @@ const SellForm = () => {
                 body: JSON.stringify({
                     item_id: '',
                     name: title,
-                    image: price,
+                    image: image,
+                    price: parseFloat(price),
+                    description: description,
                 }),
             });
             if (response.ok) {
