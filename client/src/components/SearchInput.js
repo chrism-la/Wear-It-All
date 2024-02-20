@@ -18,7 +18,6 @@ export default function SearchInput() {
     try {
       setLoading(true);
       setError(null);
-
       const response = await fetch("http://localhost:3127/items");
       const jsonData = await response.json();
       setJsonData(jsonData);

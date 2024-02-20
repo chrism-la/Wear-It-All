@@ -90,6 +90,11 @@ const GiftForm = () => {
                     </Form.Group>
 
                     <Form.Group controlId="formPrice">
+                        <Form.Label>Image URL</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Image URL Here" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="formPrice">
                         <Form.Label>Price</Form.Label>
                         <Form.Control
                             type="text"
@@ -130,7 +135,7 @@ const GiftForm = () => {
                         />
                     </Form.Group>
 
-                    <Button className="giftButton" type="submit" style={{backgroundColor: "lightblue", borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
+                    <Button className="giftButton" type="submit" style={{backgroundColor: "lightblue", color:"black" ,borderColor:"#7adda0", marginTop: "20px", marginBottom: "20px"}}>
                         Submit
                     </Button>
 
