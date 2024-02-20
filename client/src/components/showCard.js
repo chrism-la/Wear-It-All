@@ -62,7 +62,9 @@ function ShowCard({ imageData }) {
                         {imageData.name}
                     </Card.Title>
                     <Card.Text className="text-center">
-                        price, description.
+                        Price: ${imageData.price} <br></br>
+                        Description: {imageData.description}<br></br>
+                        Zip Code: {imageData.zipcode}
                     </Card.Text>
                     <div style={{ display: "inline-flex" }}>
                         <Button

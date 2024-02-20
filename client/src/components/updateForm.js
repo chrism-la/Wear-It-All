@@ -1,3 +1,5 @@
+// folder client with a folder components with a file updateForm.js
+
 import React, { useState } from "react";
 import { Container, Form, Button, Modal } from "react-bootstrap";
 
@@ -10,6 +12,7 @@ const UpdateForm = ({ imageData }) => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
     const [showNetworkErrorModal, setShowNetworkErrorModal] = useState(false);
+    const [imageUrl, setImageUrl] = useState('');
 
     const handleDrop = (event) => {
         event.preventDefault();
@@ -58,7 +61,11 @@ const UpdateForm = ({ imageData }) => {
                     body: JSON.stringify({
                         item_id: "",
                         name: title,
-                        image: price,
+                        image: imageUrl,
+                        price: price,
+                        title: title,
+                        zipcode: zipcode,
+                        description: description,
                     }),
                 }
             );
@@ -119,13 +126,13 @@ const UpdateForm = ({ imageData }) => {
                         />
                     </Form.Group>
 
-                    <Form.Group controlId="formPrice">
+                    <Form.Group controlId="formImageURL">
                         <Form.Label>Image URL</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Image URL Here"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
+                            value={imageUrl}
+                            onChange={(e) => setImageUrl(e.target.value)}
                         />
                     </Form.Group>
 

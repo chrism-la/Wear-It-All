@@ -8,6 +8,8 @@ import Gift from "../src/views/gift";
 import Sell from "../src/views/sell";
 import Show from "../src/views/show";
 import Update from "../src/views/update";
+import About from "./views/about";
+import Contact from "./views/contact";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
                 <Route path="/sell" element={<Sell />} />
                 <Route path="/show" element={<Show />} />
                 <Route path="/update" element={<Update />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
             </Routes>
         </BrowserRouter>
     );

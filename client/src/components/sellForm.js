@@ -9,7 +9,7 @@ const SellForm = () => {
     const [description, setDescription] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
-
+    
     const handleDrop = (event) => {
         event.preventDefault();
 
@@ -55,7 +55,10 @@ const SellForm = () => {
                 body: JSON.stringify({
                     item_id: '',
                     name: title,
-                    image: price,
+                    zipcode: zipcode,
+                    description: description,
+                    price: price,
+                    image: image
                 }),
             });
             if (response.ok) {
@@ -104,9 +107,9 @@ const SellForm = () => {
                         <Form.Control type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
                     </Form.Group>
 
-                    <Form.Group controlId="formPrice">
+                    <Form.Group controlId="formImage">
                         <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Image URL Here" value={price} onChange={(e) => setPrice(e.target.value)} />
+                        <Form.Control type="text" placeholder="Enter Image URL Here" value={image || ''} onChange={(e) => setImage(e.target.value)} />
                     </Form.Group>
 
                     {/* Add other form fields as needed */}

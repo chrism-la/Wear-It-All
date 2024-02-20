@@ -12,11 +12,9 @@ function MyCarousel() {
                     alt="woman looking at close on the phone"
                 />
                 <Carousel.Caption>
-    
                     <h6>Embark on an adventure and navigate our digital aisles</h6>
                 </Carousel.Caption>
             </Carousel.Item>
-
             <Carousel.Item>
                 <img
                     className="d-block w-100"

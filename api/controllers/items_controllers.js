@@ -1,3 +1,5 @@
+// folder api with a folder controllers with a file items_controllers.js
+
 const items = require('express').Router();
 const db = require('../models');
 const { Items } = db;
@@ -27,10 +29,10 @@ items.get('/:name', async (req, res) => {
 
 items.post('/new', async (req, res) => {
     try {
-        const { name, image } = req.body;
-        const newItem = await Items.create({ name, image });
+        const { name, zipcode, description, price, image } = req.body;
+        const newItem = await Items.create({ name, zipcode, description, price, image });
         res.status(200).json({
-            message: 'Succesfully inserted a new Item',
+            message: 'Successfully inserted a new Item',
             data: newItem,
         });
     } catch (error) {
@@ -65,27 +67,38 @@ items.delete('/:id', async (req, res) => {
 items.put('/:id', async (req, res) => {
     try {
         const itemId = req.params.id;
-        const { name, image } = req.body;
+        const { name, image, price, title, zipcode, description } = req.body;
+
+        console.log('Received PUT request:', req.body);
+
+        // Check if the item exists
         const itemToUpdate = await Items.findByPk(itemId);
         if (!itemToUpdate) {
             return res.status(404).json({ message: 'Item not found' });
         }
+
+        // Update the item with the new values
         await Items.update(
-            { name, image },
+            { name, image, price, title, zipcode, description },
             {
                 where: {
                     item_id: itemId,
                 },
             }
         );
+
+        // Fetch the updated item to send in the response
         const updatedItem = await Items.findByPk(itemId);
+
         res.status(200).json({
-            message: 'Item updated Successfully',
+            message: 'Item updated successfully',
             data: updatedItem,
         });
     } catch (error) {
+        console.error('Error updating item:', error);
         res.status(500).json(error);
     }
 });
+
 
 module.exports = items;

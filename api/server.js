@@ -1,3 +1,5 @@
+// folder api with a folder controllers with a file server.js
+
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();

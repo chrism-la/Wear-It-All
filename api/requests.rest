@@ -8,6 +8,9 @@ Content-Type: application/json
 {
   "item_id": "",
   "name": "blazer",
+  "zipcode": 90210,
+  "description": "plain white t-shirt",
+  "price": 10,
   "image": "image"
 }
 ###
