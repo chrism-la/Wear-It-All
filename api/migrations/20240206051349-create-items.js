@@ -17,6 +17,14 @@ module.exports = {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            price: {
+                type: DataTypes.DECIMAL(10, 2),
+                allowNull: false,
+            },
+            description: {
+                type: DataTypes.STRING,
+                allowNull: true,
+            },
         });
     },
     async down(queryInterface, Sequelize) {

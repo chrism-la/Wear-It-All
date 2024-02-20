@@ -19,7 +19,6 @@ app.options('/items/new', (req, res) => {
 // CONTROLLERS
 const itemsController = require('./controllers/items_controllers');
 app.use('/items', itemsController);
-app.use('/items/new', itemsController);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server has started on port ${process.env.PORT}`);
