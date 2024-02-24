@@ -5,8 +5,8 @@ function MyAccordion() {
     return (
         <Accordion>
             <Accordion.Item eventKey="0">
-                <Accordion.Header>Christopher Morales</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Header >Christopher Morales</Accordion.Header>
+                <Accordion.Body style={{ backgroundColor: "#c6d2cf"}}>
                     Program Coordinator, BackEnd Programmer: Introducing our
                     Project Coordinator, an orchestrator of seamless
                     collaboration and efficiency. In the role of a coordinator,
@@ -25,7 +25,7 @@ function MyAccordion() {
             </Accordion.Item>
             <Accordion.Item eventKey="1">
                 <Accordion.Header>Carlos Hernandez</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: "#c6d2cf"}}>
                     FrontEnd Programming: Meet Carlos Hernandez, our dynamic
                     Front End Developer, steering innovation with unparalleled
                     coding finesse. A React maestro, Carlos crafts responsive UI
@@ -45,7 +45,7 @@ function MyAccordion() {
             </Accordion.Item>
             <Accordion.Item eventKey="2">
                 <Accordion.Header>Samuel Kraus</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: "#c6d2cf"}}>
                     BackEnd Programmer: Introducing Samuel Kraus, the architect
                     behind our dynamic user experience. Samuel specializes in
                     crafting Express routes and functionality, the vital
@@ -62,7 +62,7 @@ function MyAccordion() {
             </Accordion.Item>
             <Accordion.Item eventKey="3">
                 <Accordion.Header>Lucia Sotelo</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: "#c6d2cf"}}>
                     FrontEnd Programmer: Meet Lucia Sotelo, the creative mind
                     behind our Front End and UX/UI magic. A React maestro, Lucia
                     ensures our applications are not just functional but
@@ -79,7 +79,7 @@ function MyAccordion() {
             </Accordion.Item>
             <Accordion.Item eventKey="4">
                 <Accordion.Header>William Torres</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: "#c6d2cf"}}>
                     BackEnd Programmer: Meet William Torres, our meticulous
                     project architect dedicated to clarity and precision.
                     William emphasizes the importance of a well-crafted Readme,
@@ -96,7 +96,7 @@ function MyAccordion() {
             </Accordion.Item>
             <Accordion.Item eventKey="5">
                 <Accordion.Header>Christopher DiStasio</Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: "#c6d2cf"}}>
                     Milestone II Instructor: Meet Christopher DiStasio, our invaluable instructor—a guiding force in the intricate world of deployment and troubleshooting. With unwavering dedication, Christopher serves as a beacon of support, always ready to lend a helping hand to his students. His wealth of knowledge transforms challenges into learning opportunities, making the complex realm of deployment more accessible. Christopher's commitment to student success goes beyond the curriculum; he invests time, ensuring every learner thrives. In the journey of technology, Christopher stands as a pillar of guidance, making the learning experience richer, and troubleshooting hurdles surmountable for all.
                 </Accordion.Body>
             </Accordion.Item>
