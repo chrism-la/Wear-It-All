@@ -1,20 +1,20 @@
 // folder src file App.js
-import "./App.css";
-import React from "react";
-import { Route, Routes, BrowserRouter,} from "react-router-dom";
-import Home from "../src/views/home";
-import Buy from "../src/views/buy";
-import Gift from "../src/views/gift";
-import Sell from "../src/views/sell";
-import Show from "../src/views/show";
-import Update from "../src/views/update";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Home from './views/home.tsx';
+import Buy from './views/buy.tsx';
+import Gift from './views/gift.tsx';
+import Sell from './views/sell.tsx';
+import Show from './views/show.tsx';
+import Update from './views/update.tsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index element ={<Home/>} />
+                <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/buy" element={<Buy />} />
                 <Route path="/gift" element={<Gift />} />

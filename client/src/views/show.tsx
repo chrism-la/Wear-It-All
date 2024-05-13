@@ -1,9 +1,9 @@
 // folder views - file show
 import React from 'react';
-import Header from '../components/header';
-import ShowCard from '../components/showCard';
+import Header from '../components/header.tsx';
+import ShowCard from '../components/showCard.tsx';
 import { useLocation } from 'react-router-dom';
-import Footer from '../components/footer';
+import Footer from '../components/footer.tsx';
 
 function Show() {
     const location = useLocation();

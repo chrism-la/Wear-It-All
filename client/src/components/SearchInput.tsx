@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import React, { useState } from 'react';
-import ImageCards from './ImageCards';
+import ImageCards from './ImageCards.tsx';
 
 export default function SearchInput() {
     const [jsonData, setJsonData] = useState([]);
@@ -37,7 +37,7 @@ export default function SearchInput() {
             <Navbar className="bg justify-content-between">
                 <Form onSubmit={handleSearch}>
                     <Row className="row">
-                        <Col xs="" style={{ paddingLeft: '30px' }}>
+                        <Col style={{ paddingLeft: '30px' }}>
                             <Form.Control type="text" placeholder="Search" className="mr-sm-2" value={search} onChange={(e) => setSearch(e.target.value)} />
                         </Col>
                         <Col xs="auto">
@@ -49,7 +49,7 @@ export default function SearchInput() {
                 </Form>
             </Navbar>
             {loading && <p>Loading...</p>}
-            {error && <p>Error: {error.message}</p>}
+            {error && <p>Error: {error}</p>}
             {!loading && !error && <ImageCards filteredData={filteredData} />}
             {filteredData.length === 0 && <p>No matching results found.</p>}
         </>
