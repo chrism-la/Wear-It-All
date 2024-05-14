@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent, DragEvent, FormEvent } from 'react';
 import { Container, Form, Button, Modal } from 'react-bootstrap';
 
-const SellForm = () => {
-    const [image, setImage] = useState(null);
-    const [price, setPrice] = useState('');
-    const [title, setTitle] = useState('');
-    const [zipcode, setZipcode] = useState('');
-    const [description, setDescription] = useState('');
-    const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+interface SellFormProps {
+    // Add any prop types if needed
+}
 
-    const handleDrop = (event) => {
+const SellForm: React.FC<SellFormProps> = () => {
+    const [image, setImage] = useState<string | null>(null);
+    const [price, setPrice] = useState<string>('');
+    const [title, setTitle] = useState<string>('');
+    const [zipcode, setZipcode] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+    const [showModal, setShowModal] = useState<boolean>(false);
+    const [modalMessage, setModalMessage] = useState<string>('');
+
+    const handleDrop = (event: DragEvent<HTMLDivElement>) => {
         event.preventDefault();
 
         const file = event.dataTransfer.files[0];
@@ -19,32 +23,32 @@ const SellForm = () => {
             const reader = new FileReader();
 
             reader.onload = (e) => {
-                setImage(e.target.result);
+                setImage(e.target?.result as string);
             };
 
             reader.readAsDataURL(file);
         }
     };
 
-    const handleDragOver = (event) => {
+    const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
         event.preventDefault();
     };
 
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
+    const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
 
         if (file && file.type.startsWith('image/')) {
             const reader = new FileReader();
 
             reader.onload = (e) => {
-                setImage(e.target.result);
+                setImage(e.target?.result as string);
             };
 
             reader.readAsDataURL(file);
         }
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             const response = await fetch('http://localhost:3127/items/new', {
@@ -97,21 +101,11 @@ const SellForm = () => {
                             <p>Click to upload image</p>
                         </Form.Label>
                         <div className="image-upload-field" onDrop={handleDrop} onDragOver={handleDragOver}>
-                            {image ? (
-                                <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} />
-                            ) : (
-                                <p className="hidden">Drop image here to upload</p>
-                            )}
+                            {image ? <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} /> : <p className="hidden">Drop image here to upload</p>}
                         </div>
                         <Form.Control type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
                     </Form.Group>
 
-                    <Form.Group controlId="formPrice">
-                        <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Image URL Here" value={price} onChange={(e) => setPrice(e.target.value)} />
-                    </Form.Group>
-
-                    {/* Add other form fields as needed */}
                     <Form.Group controlId="formPrice">
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="text" placeholder="Enter price" value={price} onChange={(e) => setPrice(e.target.value)} />
@@ -132,11 +126,7 @@ const SellForm = () => {
                         <Form.Control as="textarea" rows={3} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)} />
                     </Form.Group>
 
-                    <Button
-                        className="sellButton"
-                        type="submit"
-                        style={{ backgroundColor: 'lightblue', color: 'black', borderColor: '#7adda0', marginTop: '20px', marginBottom: '20px' }}
-                    >
+                    <Button className="sellButton" type="submit" style={{ backgroundColor: 'lightblue', color: 'black', borderColor: '#7adda0', marginTop: '20px', marginBottom: '20px' }}>
                         Submit
                     </Button>
                 </Form>

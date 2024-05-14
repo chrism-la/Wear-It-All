@@ -1,24 +1,31 @@
-// components folder - header file
-import { Link } from "react-router-dom";
-import { Navbar, Container, Button, Nav } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-import React from "react";
-import "../App.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Container, Button, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import '../App.css';
 
-export default function Header() {
+const Header: React.FC = () => {
     return (
         <>
             <div className="d-flex flex-row align-items-center">
                 <Navbar bg="" expand="lg">
                     <Container className="flex-row align-items-center">
-                        <Navbar.Brand className="" as={Link} to="/">
-                            <Button className="" style={{backgroundColor: "#7aada0", color: "black", borderColor: "lightblue"}}>Home</Button>
-
-                            <h1 className="pt-2 text-center"
+                        <Navbar.Brand as={Link} to="/">
+                            <Button
                                 style={{
-                                    color: "#472836",
-                                    textShadow: "2px 2px 3px #136b55",
-                                    width: "100vw",
+                                    backgroundColor: '#7aada0',
+                                    color: 'black',
+                                    borderColor: 'lightblue',
+                                }}
+                            >
+                                Home
+                            </Button>
+                            <h1
+                                className="pt-2 text-center"
+                                style={{
+                                    color: '#472836',
+                                    textShadow: '2px 2px 3px #136b55',
+                                    width: '100vw',
                                 }}
                             >
                                 Wear it Again Wardrobe
@@ -28,8 +35,8 @@ export default function Header() {
                 </Navbar>
             </div>
 
-            <div style={{ background: "#7aada0" }}>
-                <Container >
+            <div style={{ background: '#7aada0' }}>
+                <Container>
                     <Navbar className="d-flex flex-column justify-content-between">
                         <Nav className="">
                             <LinkContainer to="/buy">
@@ -48,13 +55,20 @@ export default function Header() {
                 </Container>
             </div>
 
-            <h4 className= "pt-4" style={{
-                                    color: "#472836",
-                                    textShadow: "2px 2px 8px #136b55",
-                                    boxSizing: "border-box",
-                                    width: "100vw",
-                                    textAlign: "center",
-                                }}>from our closet to yours</h4>
+            <h4
+                className="pt-4"
+                style={{
+                    color: '#472836',
+                    textShadow: '2px 2px 8px #136b55',
+                    boxSizing: 'border-box',
+                    width: '100vw',
+                    textAlign: 'center',
+                }}
+            >
+                from our closet to yours
+            </h4>
         </>
     );
-}
+};
+
+export default Header;

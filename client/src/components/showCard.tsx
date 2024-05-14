@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Modal from 'react-bootstrap/Modal';
-import '../App.css';
+import { Button, Card, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-function ShowCard({ imageData }) {
+interface ImageData {
+    item_id: string;
+    name: string;
+    image: string;
+    price: number;
+    description: string;
+    zipcode: string;
+}
+
+interface ShowCardProps {
+    imageData: ImageData;
+}
+
+const ShowCard: React.FC<ShowCardProps> = ({ imageData }) => {
     const navigate = useNavigate();
-    const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+    const [showModal, setShowModal] = useState<boolean>(false);
+    const [modalMessage, setModalMessage] = useState<string>('');
 
     const handleBuyClick = async () => {
         try {
@@ -19,20 +29,20 @@ function ShowCard({ imageData }) {
                 },
                 body: JSON.stringify({ item_id: imageData.item_id }),
             });
+
             if (response.ok) {
                 setModalMessage('Thank you for your purchase');
-                setShowModal(true);
             } else {
-                setModalMessage('Sorry, this Item is no longer available');
-                setShowModal(true);
+                setModalMessage('Sorry, this item is no longer available');
             }
         } catch (error) {
-            setModalMessage('Error Purchasing item');
+            setModalMessage('Error purchasing item');
+        } finally {
             setShowModal(true);
         }
     };
 
-    const handleCardClick = (imageData) => {
+    const handleCardClick = () => {
         navigate('/update', { state: { imageData } });
     };
 
@@ -49,39 +59,17 @@ function ShowCard({ imageData }) {
     return (
         <>
             <Card className="row justify-content-center mx-auto w-50 min-vw-50 p-2">
-                <Card.Img variant="top" src={imageData.image} alt={imageData.image} />
+                <Card.Img variant="top" src={imageData.image} alt={imageData.name} />
                 <Card.Body>
                     <Card.Title className="text-center">{imageData.name}</Card.Title>
                     <Card.Text className="text-center">
-                        {imageData.price}
-                        {imageData.description}
-                        {imageData.zipcode}
+                        {imageData.price} - {imageData.description} - {imageData.zipcode}
                     </Card.Text>
-                    <div style={{ display: 'inline-flex' }}>
-                        <Button
-                            type=""
-                            className=""
-                            style={{
-                                backgroundColor: '#7aada0',
-                                border: '2px solid #d6d6d6',
-                                padding: '5px',
-                                marginLeft: '2px',
-                            }}
-                            onClick={handleBuyClick}
-                        >
-                            Buying
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button variant="primary" style={{ marginRight: '10px' }} onClick={handleBuyClick}>
+                            Buy
                         </Button>
-                        <Button
-                            type=""
-                            className=""
-                            style={{
-                                backgroundColor: '#7aada0',
-                                border: '2px solid #d6d6d6',
-                                padding: '5px',
-                                marginLeft: '2px',
-                            }}
-                            onClick={() => handleCardClick(imageData)}
-                        >
+                        <Button variant="secondary" onClick={handleCardClick}>
                             Update
                         </Button>
                     </div>
@@ -93,6 +81,6 @@ function ShowCard({ imageData }) {
             </Modal>
         </>
     );
-}
+};
 
 export default ShowCard;

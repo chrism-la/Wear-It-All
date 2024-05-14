@@ -1,19 +1,25 @@
+import React, { useState, useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import React, { useState } from 'react';
 import ImageCards from './ImageCards.tsx';
 
-export default function SearchInput() {
-    const [jsonData, setJsonData] = useState([]);
-    const [search, setSearch] = useState('');
-    const [filteredData, setFilteredData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+interface Item {
+    id: number;
+    name: string;
+    image: string;
+}
 
-    const handleSearch = async (e) => {
+const SearchInput: React.FC = () => {
+    const [jsonData, setJsonData] = useState<Item[]>([]);
+    const [search, setSearch] = useState<string>('');
+    const [filteredData, setFilteredData] = useState<Item[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<Error | null>(null);
+
+    const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             setLoading(true);
@@ -21,7 +27,7 @@ export default function SearchInput() {
             const response = await fetch('http://localhost:3127/items');
             const data = await response.json();
             setJsonData(data);
-            const filtered = jsonData.filter((item) => item.name.toLowerCase() === search.toLowerCase());
+            const filtered = data.filter((item: Item) => item.name.toLowerCase().includes(search.toLowerCase()));
             setFilteredData(filtered);
         } catch (error) {
             setError(error);
@@ -31,7 +37,6 @@ export default function SearchInput() {
 
         setSearch('');
     };
-
     return (
         <>
             <Navbar className="bg justify-content-between">
@@ -49,9 +54,11 @@ export default function SearchInput() {
                 </Form>
             </Navbar>
             {loading && <p>Loading...</p>}
-            {error && <p>Error: {error}</p>}
+            {error && <p>Error: {error.message}</p>}
             {!loading && !error && <ImageCards filteredData={filteredData} />}
             {filteredData.length === 0 && <p>No matching results found.</p>}
         </>
     );
-}
+};
+
+export default SearchInput;
