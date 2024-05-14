@@ -23,7 +23,6 @@ const carouselItems: CarouselItem[] = [
         alt: 'couple on picnic',
         caption: 'If you want to make a statement with that special someone, our app is your virtual wardrobe whisperer.',
     },
-    // Add more items as needed
 ];
 
 const MyCarousel: React.FC = () => {

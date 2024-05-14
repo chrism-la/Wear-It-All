@@ -44,10 +44,6 @@ const GiftForm: React.FC = () => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        // Handle form submission logic here (e.g., send data to the server)
-
-        // Reset form fields after submission
         setImage(null);
         setPrice('');
         setTitle('');

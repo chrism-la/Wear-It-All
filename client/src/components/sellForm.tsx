@@ -1,11 +1,7 @@
 import React, { useState, useEffect, ChangeEvent, DragEvent, FormEvent } from 'react';
 import { Container, Form, Button, Modal } from 'react-bootstrap';
 
-interface SellFormProps {
-    // Add any prop types if needed
-}
-
-const SellForm: React.FC<SellFormProps> = () => {
+const SellForm: React.FC = () => {
     const [image, setImage] = useState<string | null>(null);
     const [price, setPrice] = useState<string>('');
     const [title, setTitle] = useState<string>('');

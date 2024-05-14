@@ -1,10 +1,9 @@
 import React from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
-import { useNavigate, NavigateFunction } from 'react-router-dom'; // Import NavigateFunction for type safety
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
 interface ImageData {
     image: string;
-    // Define other properties of the image data as needed
 }
 
 interface ImageCardsProps {
@@ -12,7 +11,7 @@ interface ImageCardsProps {
 }
 
 const ImageCards: React.FC<ImageCardsProps> = ({ filteredData }) => {
-    const navigate = useNavigate() as NavigateFunction; // Cast useNavigate() as NavigateFunction
+    const navigate = useNavigate() as NavigateFunction;
 
     const handleCardClick = (imageData: ImageData) => {
         navigate('/show', { state: { imageData } });
